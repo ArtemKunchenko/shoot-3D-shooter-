@@ -79,3 +79,19 @@ public:
 	void Shoot() override;
 
 };
+class Machine :public Weapon
+{
+public:
+	Machine() :Weapon() //constructor
+	{
+		setType("Machine");
+		setAmmunition(30);
+		setClips(3);
+		setBarrelLength(415);
+		setDamage(1000);
+	};
+	void ShowWeapon() override;
+	void Reloading() override;
+	void Shoot() override;
+
+};

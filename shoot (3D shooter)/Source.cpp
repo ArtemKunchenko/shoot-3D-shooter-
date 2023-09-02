@@ -14,9 +14,11 @@ int main()
 	Shoot(pistol);*/
 	/*Shotgun shotgun;
 	Shoot(shotgun);*/
-	Knife knife;
-	//ShowWeapon(knife);
-	Shoot(knife);
+	//Knife knife;
+	////ShowWeapon(knife);
+	//Shoot(knife);
+	Machine machine;
+	Shoot(machine);
 	system("pause");
 	return 0;
 }

@@ -167,3 +167,57 @@ void Knife::Shoot()
 		
 	}
 }
+
+void Machine::ShowWeapon()
+{
+	cout << "Type: " << getType() << endl;
+	cout << "Quantity of ammunition: " << getAmmunition() << endl;
+	cout << "Quantity of aditional clips: " << getClips() << endl;
+	cout << "Barrel legth: " << getBarrelLength() << " mm" << endl;
+	cout << "Power of damage: " << getDamage() << " points" << endl;
+}
+
+void Machine::Reloading()
+{
+	if (getClips() > 0)
+	{
+		setAmmunition(30);
+		setClips(getClips() - 1);
+	}
+}
+
+void Machine::Shoot()
+{
+	while (true)
+	{
+
+		if (getAmmunition() > 0)
+		{
+			system("cls");
+			cout << getType() << endl;
+			cout << "Ammunition: " << getAmmunition() << endl;
+			cout << "Aditional clips: " << getClips() << endl;
+			cout << "\n\t\t\t PLAYER IS SHOOTING!!!\n";
+			setAmmunition(getAmmunition() - 1);
+			Sleep(100);
+
+		}
+		else
+		{
+			Reloading();
+			if (getClips() < 0 || getAmmunition() == 0) break;
+			for (int i = 3; i > 0; i--)
+			{
+				system("cls");
+				cout << "\t\t\tRELOADING OF WEAPON!!!" << " (" << i << ")";
+				Sleep(1000);
+			}
+			cout << endl;
+		}
+		system("cls");
+		cout << getType() << endl;
+		cout << "Ammunition: " << getAmmunition() << endl;
+		cout << "Aditional clips: " << getClips() << endl;
+		cout << "\nMACHINE IS EMPTY!!!\n";
+	}
+}
