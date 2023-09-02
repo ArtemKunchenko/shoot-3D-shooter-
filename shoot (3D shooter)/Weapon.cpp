@@ -116,3 +116,54 @@ void Shotgun::Shoot()
 		cout << "\nSHOTGUN IS EMPTY!!!\n";
 	}
 }
+
+void Knife::ShowWeapon()
+{
+	cout << "Type: " << getType() << endl;
+	cout << "Player can attack only: " << getAmmunition() <<" sec." << endl;
+	cout << "Margin of safety: " << getClips() << endl;
+	cout << "Legth of blade: " << getBarrelLength() << " mm" << endl;
+	cout << "Power of damage: " << getDamage() << " points" << endl;
+}
+
+void Knife::Reloading()
+{
+	if (getClips() > 0)
+	{
+		setAmmunition(5);
+		setClips(getClips() - 1);
+	}
+}
+
+void Knife::Shoot()
+{
+	while (true)
+	{
+
+		if (getAmmunition() > 0)
+		{
+			system("cls");
+			cout << getType() << endl;
+			cout << "Player will stop attack after " << getAmmunition()<<" sec." << endl;
+			cout << "\n\t\t\t PLAYER IS ATTACKING!!!\n";
+			setAmmunition(getAmmunition() - 1);
+			Sleep(1000);
+
+		}
+		else
+		{
+			Reloading();
+			if (getClips() < 0 || getAmmunition() == 0) break;
+			for (int i = 5; i > 0; i--)
+			{
+				system("cls");
+				cout << "\t\t\tPLAYER IS TIRED!!! NEW ATTACK AFTER" << " (" << i << ")"<<"sec.";
+				Sleep(1000);
+			}
+			cout << endl;
+		}
+		system("cls");
+		cout << getType() <<" is broken!!!" << endl;
+		
+	}
+}

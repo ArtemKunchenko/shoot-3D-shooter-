@@ -63,4 +63,19 @@ public:
 	void Shoot() override;
 
 };
+class Knife :public Weapon
+{
+public:
+	Knife() :Weapon() //constructor
+	{
+		setType("Knife");
+		setAmmunition(5);
+		setClips(rand()%2);
+		setBarrelLength(205);
+		setDamage(100);
+	};
+	void ShowWeapon() override;
+	void Reloading() override;
+	void Shoot() override;
 
+};
