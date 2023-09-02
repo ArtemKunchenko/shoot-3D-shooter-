@@ -17,8 +17,11 @@ int main()
 	//Knife knife;
 	////ShowWeapon(knife);
 	//Shoot(knife);
-	Machine machine;
-	Shoot(machine);
+	/*Machine machine;
+	Shoot(machine);*/
+	Chainsaw saw;
+	Shoot(saw);
+
 	system("pause");
 	return 0;
 }

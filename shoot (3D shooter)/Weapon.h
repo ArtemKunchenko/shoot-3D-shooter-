@@ -95,3 +95,19 @@ public:
 	void Shoot() override;
 
 };
+class Chainsaw :public Weapon
+{
+public:
+	Chainsaw() :Weapon() //constructor
+	{
+		setType("Chainsaw");
+		setAmmunition(100);
+		setClips(0);
+		setBarrelLength(350);
+		setDamage(600);
+	};
+	void ShowWeapon() override;
+	void Reloading() override;
+	void Shoot() override;
+
+};

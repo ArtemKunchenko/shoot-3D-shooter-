@@ -221,3 +221,57 @@ void Machine::Shoot()
 		cout << "\nMACHINE IS EMPTY!!!\n";
 	}
 }
+
+void Chainsaw::ShowWeapon()
+{
+	cout << "Type: " << getType() << endl;
+	cout << "Quantity of fuel: " << getAmmunition() <<" ml."<< endl;
+	cout << "Quantity of aditional tanks: " << getClips() << endl;
+	cout << "Legth of saw: " << getBarrelLength() << " mm" << endl;
+	cout << "Power of damage: " << getDamage() << " points" << endl;
+}
+
+void Chainsaw::Reloading()
+{
+	if (getClips() > 0)
+	{
+		setAmmunition(100);
+		setClips(getClips() - 1);
+	}
+}
+
+void Chainsaw::Shoot()
+{
+	while (true)
+	{
+
+		if (getAmmunition() > 0)
+		{
+			system("cls");
+			cout << getType() << endl;
+			cout << "Fuel: " << getAmmunition() <<" ml" << endl;
+			cout << "Aditional tanks: " << getClips() << endl;
+			cout << "\n\t\t\t PLAYER IS SAWING!!!\n";
+			setAmmunition(getAmmunition() - 1);
+			Sleep(1000);
+
+		}
+		else
+		{
+			Reloading();
+			if (getClips() < 0 || getAmmunition() == 0) break;
+			for (int i = 20; i > 0; i--)
+			{
+				system("cls");
+				cout << "\t\t\tFILLING OF TANK!!!" << " (" << i << ")";
+				Sleep(1000);
+			}
+			cout << endl;
+		}
+		system("cls");
+		cout << getType() << endl;
+		cout << "Fuel: " << getAmmunition() << endl;
+		cout << "Aditional tanks: " << getClips() << endl;
+		cout << "\nTANK OF CHAINSAW IS EMPTY!!!\n";
+	}
+}
